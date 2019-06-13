@@ -13,3 +13,6 @@
 
 Пересбор среды Codeception
 * `$ cept build`
+
+Команда в Codeception, которая автоматически генерирует подклассы разных классов Tester.
+* `$ cept generate:stepobject acceptance CRМOperatorSteps`
