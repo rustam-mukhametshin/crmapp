@@ -20,3 +20,14 @@ $I->fillCustomerDataForm($second_customer);
 $I->submitCustomerDataForm();
 
 $I->seeIAmInListCustomersUi();
+
+$I = new CRMUserSteps($scenario);
+$I->wantTo('query the customer info using his phone number');
+
+$I->amInQueryCustomerUi();
+$I->fillInPhoneFieldWithDataForm($first_customer);
+$I->clickSearchButton();
+
+$I->seeIAmInListCustomersUi();
+$I->seeCustomerInList($first_customer);
+$I->dontSeeCustomerInList($second_customer);
