@@ -9,6 +9,9 @@ use yii\db\ActiveRecord;
 /**
  * Class PhoneRecord
  * @package app\models\customer
+ *
+ * @property integer $customer_id
+ * @property string $number
  */
 class PhoneRecord extends ActiveRecord
 {

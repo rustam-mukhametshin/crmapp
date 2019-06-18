@@ -9,6 +9,11 @@ use yii\db\ActiveRecord;
 /**
  * Class CustomerRecord
  * @package app\models\customer
+ *
+ * @property string $name
+ * @property \DateTime $birth_date
+ * @property string $notes
+ * @property PhoneRecord $phones
  */
 class CustomerRecord extends ActiveRecord
 {
