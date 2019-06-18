@@ -10,6 +10,7 @@ use yii\db\ActiveRecord;
  * Class CustomerRecord
  * @package app\models\customer
  *
+ * @property integer $id
  * @property string $name
  * @property \DateTime $birth_date
  * @property string $notes
