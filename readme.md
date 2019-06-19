@@ -1,3 +1,13 @@
+Database config
+-------------------
+1 Creating database
+~~~
+CREATE DATABASE `yii_crmapp` DEFAULT CHARACTER SET UTF8 DEFAULT COLLATE UTF8_UNICODE_CI;
+~~~
+2 Run migrations
+~~~
+php yii migrate
+~~~
 
 Алиас для полного пути (РОSIХ cmd вроде bash)
 * `$ alias cept="./vendor/bin/codecept"`
