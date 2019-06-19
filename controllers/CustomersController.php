@@ -56,5 +56,21 @@ class CustomersController extends Controller
         }
     }
 
+    /**
+     * @param CustomerRecord $customerRecord
+     * @param PhoneRecord $phoneRecord
+     * @return Customer
+     * @throws \Exception
+     */
+    private function makeCustomer(CustomerRecord $customerRecord, PhoneRecord $phoneRecord)
+    {
+        $name = $customerRecord->name;
+        $birth_date = new \DateTime($customerRecord->birth_date);
 
+        $customer = new Customer($name, $birth_date);
+        $customer->notes = $customerRecord->notes;
+        $customer->phones[] = new Phone($phoneRecord->number);
+
+        return $customer;
+    }
 }
