@@ -6,6 +6,10 @@ return [
         'db' => require(__DIR__ . '/db.php'),
         'request' => [
             'cookieValidationKey' => 'cookie secret key',
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
         ]
     ]
 ];
