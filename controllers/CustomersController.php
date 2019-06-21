@@ -24,12 +24,19 @@ class CustomersController extends Controller
     }
 
     /**
-     * @return string
+     * @return string|\yii\web\Response
+     * @throws \Exception
      */
     public function actionAdd()
     {
         $customer = new CustomerRecord();
         $phone = new PhoneRecord();
+
+        if ($this->load($customer, $phone, $_POST)) {
+            $this->store($this->makeCustomer($customer, $phone));
+            return $this->redirect('/customers');
+        }
+
         return $this->render('add', compact('customer', 'phone'));
     }
 
