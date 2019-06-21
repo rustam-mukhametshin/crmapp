@@ -73,4 +73,19 @@ class CustomersController extends Controller
 
         return $customer;
     }
+
+    /**
+     * @param CustomerRecord $customerRecord
+     * @param PhoneRecord $phoneRecord
+     * @param array $post
+     * @return bool
+     */
+    private function load(CustomerRecord $customerRecord, PhoneRecord $phoneRecord, array $post)
+    {
+        return $customerRecord->load($post)
+            and $phoneRecord->load($post)
+            and $customerRecord->validate()
+            and $phoneRecord->validate(['number']);
+    }
+
 }
