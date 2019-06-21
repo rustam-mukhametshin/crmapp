@@ -17,7 +17,7 @@ class m190617_171941_init_customer_table extends Migration
             [
                 'id' => 'pk',
                 'name' => 'string',
-                'birth_data' => 'date',
+                'birth_date' => 'date',
                 'notes' => 'text',
             ],
             'ENGINE=InnoDB'
