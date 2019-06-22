@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use yii\data\ArrayDataProvider;
 use yii\web\Controller;
 use app\models\customer\Customer;
 use app\models\customer\CustomerRecord;
@@ -101,6 +102,20 @@ class CustomersController extends Controller
             and $phoneRecord->load($post)
             and $customerRecord->validate()
             and $phoneRecord->validate(['number']);
+    }
+
+    /**
+     * @param $data
+     * @return ArrayDataProvider
+     */
+    private function wrapIntoDataProvider($data)
+    {
+        return new ArrayDataProvider(
+            [
+                'allModels' => $data,
+                'pagination' => false,
+            ]
+        );
     }
 
 }
