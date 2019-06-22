@@ -118,4 +118,23 @@ class CustomersController extends Controller
         );
     }
 
+    /**
+     * @param $number
+     * @return array
+     * @throws \Exception
+     */
+    private function getRecordsByPhoneNumber($number)
+    {
+        $phone_record = PhoneRecord::findOne(['number' => $number]);
+        if (!$phone_record) {
+            return [];
+        }
+
+        $customer_record = CustomerRecord::findOne($phone_record->customer_id);
+        if (!$customer_record) {
+            return [];
+        }
+        return [$this->makeCustomer($customer_record, $phone_record)];
+    }
+
 }
