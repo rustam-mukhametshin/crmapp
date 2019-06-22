@@ -41,6 +41,14 @@ class CustomersController extends Controller
     }
 
     /**
+     * @return string
+     */
+    public function actionQuery()
+    {
+        return $this->render('query');
+    }
+
+    /**
      * @param Customer $customer
      */
     private function store(Customer $customer)
