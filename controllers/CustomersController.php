@@ -105,6 +105,18 @@ class CustomersController extends Controller
     }
 
     /**
+     * @return ArrayDataProvider
+     * @throws \Exception
+     */
+    private function findRecordsByQuery()
+    {
+        $number = \Yii::$app->request->get('phone_number');
+        $records = $this->getRecordsByPhoneNumber($number);
+        $dataProviver = $this->wrapIntoDataProvider($records);
+        return $dataProviver;
+    }
+
+    /**
      * @param $data
      * @return ArrayDataProvider
      */
