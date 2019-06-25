@@ -110,10 +110,10 @@ class CustomersController extends Controller
      */
     private function findRecordsByQuery()
     {
-        $number = \Yii::$app->request->get('phone_number');
+        $number = \Yii::$app->request->get('number');
         $records = $this->getRecordsByPhoneNumber($number);
-        $dataProviver = $this->wrapIntoDataProvider($records);
-        return $dataProviver;
+        $dataProvider = $this->wrapIntoDataProvider($records);
+        return $dataProvider;
     }
 
     /**

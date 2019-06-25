@@ -14,7 +14,7 @@ class CRMUserSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->fillField(
-            'PhoneRecord[number]',
+            'number',
             $customer_data['PhoneRecord[number]']
         );
     }
