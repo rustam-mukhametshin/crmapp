@@ -13,4 +13,13 @@ class Phone
      * @var string
      */
     public $number;
+
+    /**
+     * Phone constructor.
+     * @param $number
+     */
+    public function __construct($number)
+    {
+        $this->number = $number;
+    }
 }
