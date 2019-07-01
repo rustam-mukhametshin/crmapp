@@ -4,6 +4,12 @@ namespace Step\Acceptance;
 class CRMServicesManagementSteps extends CRMGuestSteps
 {
 
+    function amInListServicesUi()
+    {
+        $I = $this;
+        $I->amOnPage('/services');
+    }
+
     function imagineService()
     {
         $faker = \Faker\Factory::create();
