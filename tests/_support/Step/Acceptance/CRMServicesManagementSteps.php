@@ -19,4 +19,18 @@ class CRMServicesManagementSteps extends CRMGuestSteps
         ];
     }
 
+    function fillServiceDataForm($fieldsData)
+    {
+        $I = $this;
+        foreach ($fieldsData as $key => $value)
+            $I->fillField($key, $value);
+    }
+
+    function submitServiceDataForm()
+    {
+        $I = $this;
+        $I->click('button[type=submit]');
+        //$I->wait(1);
+    }
+
 }
