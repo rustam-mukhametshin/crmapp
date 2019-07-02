@@ -3,6 +3,7 @@ namespace Step\Acceptance;
 
 class CRMServicesManagementSteps extends CRMGuestSteps
 {
+    const SERVICES_LIST_SELECTOR = '.grid-view';
 
     function amInListServicesUi()
     {
