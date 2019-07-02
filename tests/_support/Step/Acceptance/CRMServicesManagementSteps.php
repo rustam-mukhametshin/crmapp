@@ -10,6 +10,12 @@ class CRMServicesManagementSteps extends CRMGuestSteps
         $I->amOnPage('/services');
     }
 
+    function clickOnRegisterNewServiceButton()
+    {
+        $I = $this;
+        $I->click('Create');
+    }
+
     function seeIAmInAddServiceUi()
     {
         $I = $this;
@@ -96,10 +102,32 @@ class CRMServicesManagementSteps extends CRMGuestSteps
         return $xpath;
     }
 
+    public function clickEditButtonBesideService($service_data)
+    {
+        $I = $this;
+        $xpath = $this->makeXpathForButtonNearServiceName(
+            $service_data['ServiceRecord[name]'],
+            'Update'
+        );
+        $I->click($xpath);
+    }
+
     public function seeDeletionConfirmation()
     {
         $I = $this;
         $I->seeInPopup('delete');
+    }
+
+    public function cancelDeletion()
+    {
+        $I = $this;
+        $I->cancelPopup();
+    }
+
+    public function confirmDeletion()
+    {
+        $I = $this;
+        $I->acceptPopup();
     }
 
     public function seeDeleteButtonBesideService($service_data)
@@ -110,6 +138,17 @@ class CRMServicesManagementSteps extends CRMGuestSteps
             'Delete'
         );
         $I->seeElement($xpath);
+    }
+
+    public function clickDeleteButtonBesideService($service_data)
+    {
+        $I = $this;
+        $xpath = $this->makeXpathForButtonNearServiceName(
+            $service_data['ServiceRecord[name]'],
+            'Delete'
+        );
+        $I->click($xpath);
+        $I->wait(1);
     }
 
 }
