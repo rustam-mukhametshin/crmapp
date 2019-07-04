@@ -15,12 +15,20 @@
  * @method void pause()
  *
  * @SuppressWarnings(PHPMD)
-*/
+ */
 class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * Define custom actions here
+     */
+    /**
+     * @param $content
+     * @param int $trigger_length
+     */
+    public function seeContentIsLong($content, $trigger_length = 100)
+    {
+        $this->assertGreatherThen($trigger_length, strlen($content));
+    }
 }
