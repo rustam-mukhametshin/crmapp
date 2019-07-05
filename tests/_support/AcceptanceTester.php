@@ -23,12 +23,4 @@ class AcceptanceTester extends \Codeception\Actor
     /**
      * Define custom actions here
      */
-    /**
-     * @param $content
-     * @param int $trigger_length
-     */
-    public function seeContentIsLong($content, $trigger_length = 100)
-    {
-        $this->assertGreatherThen($trigger_length, strlen($content));
-    }
 }
