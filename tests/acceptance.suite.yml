@@ -10,4 +10,5 @@ modules:
         - PhpBrowser:
             url: http://crmapp.loc/
         - \Helper\Acceptance
-    step_decorators: ~        
+        - \Helper\AcceptanceHelper
+    step_decorators: ~
