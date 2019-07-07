@@ -1,8 +1,9 @@
 {
     "require": {
-        "codeception/codeception": "*",
-        "fzaninotto/faker": "*",
-        "yiisoft/yii2": "*",
-        "yiisoft/yii2-gii": "*"
+        "php": ">=7.1",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "kartik-v/yii2-grid": "dev-master",
+        "yiisoft/yii2-bootstrap": "~2.0.0"
     }
 }
