@@ -114,6 +114,23 @@ class ServicesController extends Controller
     /**
      * @return \yii\console\Response|Response
      */
+    public function actionJson()
+    {
+        $model = ServiceRecord::find()->all();
+        $data = array_map(function ($m) {
+            return $m->attributes;
+        }, $model);
+
+        $response = Yii::$app->response;
+        $response->format = Response::FORMAT_JSON;
+        $response->data = $data;
+
+        return $response;
+    }
+
+    /**
+     * @return \yii\console\Response|Response
+     */
     public function actionYaml()
     {
         $models = ServiceRecord::find()->all();
