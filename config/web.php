@@ -11,6 +11,13 @@ return [
         'request' => [
             'cookieValidationKey' => 'cookie secret key',
         ],
+        'response' => [
+            'formatters' => [
+                'yaml' => [
+                    'class' => 'app\utilities\YamlResponseFormatter',
+                ],
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
