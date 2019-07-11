@@ -1,14 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\BootstrapAsset;
-use yii\web\YiiAsset;
+use app\assets\ApplicationUiAssetBundle;
 
 /** @var $this \yii\web\View */
 /** @var $content */
 
-BootstrapAsset::register($this);
-YiiAsset::register($this);
+ApplicationUiAssetBundle::register($this);
 
 ?>
 <?php $this->beginPage() ?>
