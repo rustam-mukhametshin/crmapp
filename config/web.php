@@ -28,6 +28,10 @@ return [
                     'class' => '\app\utilities\MarkdownRenderer'
                 ],
             ],
+            'theme' => [
+                'class' => \yii\base\Theme::class,
+                'basePath' => '@app/themes/snowy',
+            ]
         ],
     ],
     'modules' => [
