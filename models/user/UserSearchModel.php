@@ -18,7 +18,7 @@ class UserSearchModel extends UserRecord
     {
         return [
             [['id'], 'integer'],
-            [['username', 'password'], 'safe'],
+            [['username',], 'safe'],
         ];
     }
 
@@ -61,8 +61,7 @@ class UserSearchModel extends UserRecord
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'username', $this->username])
-            ->andFilterWhere(['like', 'password', $this->password]);
+        $query->andFilterWhere(['like', 'username', $this->username]);
 
         return $dataProvider;
     }
