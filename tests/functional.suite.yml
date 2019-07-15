@@ -7,7 +7,10 @@
 
 actor: FunctionalTester
 modules:
-    enabled:
-        # add a framework module here
-        - \Helper\Functional
-    step_decorators: ~        
+  enabled: [Db, Filesystem]
+  config:
+    Db:
+      dsn: 'mysql:host=localhost;dbname=yii2_crmapp'
+      user: 'root'
+      password: ''
+      dump: tests/_data/dump.sql
