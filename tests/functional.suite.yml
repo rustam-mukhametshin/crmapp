@@ -7,7 +7,7 @@
 
 actor: FunctionalTester
 modules:
-  enabled: [Db, Filesystem]
+  enabled: [Db, Filesystem, \Helper\FunctionalHelper]
   config:
     Db:
       dsn: 'mysql:host=localhost;dbname=yii2_crmapp'
