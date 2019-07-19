@@ -23,7 +23,7 @@ class PasswordHashingTest extends Unit
     public function PasswordIsHashedWhenSavingUser()
     {
         $user = $this->imagineUserRecord();
-        $plaintext_passowrd = $user->password;
+        $plaintext_password = $user->password;
         $user->save();
 
         $saved_user = UserRecord::findOne($user->id);
@@ -32,7 +32,7 @@ class PasswordHashingTest extends Unit
         $this->assertInstanceOf(get_class($user), $saved_user);
         $this->assertTrue(
             $security->validatePassword(
-                $plaintext_passowrd,
+                $plaintext_password,
                 $saved_user->password
             )
         );
@@ -44,7 +44,7 @@ class PasswordHashingTest extends Unit
 
         $user = new UserRecord();
         $user->username = $faker->word;
-        $user->password = $faker->md5(time());
+        $user->password = md5(time());
         return $user;
     }
 
