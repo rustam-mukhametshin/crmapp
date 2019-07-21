@@ -48,4 +48,23 @@ class PasswordHashingTest extends Unit
         return $user;
     }
 
+    public function PasswordIsNotRehashedAfterUpdatingWithoutChangingPassword()
+    {
+        $user = $this->imagineUserRecord();
+        $user->save();
+
+        /** @var UserRecord $saved_user */
+        $saved_user = UserRecord::findOne($user->id);
+        $expected_hash = $saved_user->password;
+
+        $saved_user->username = md5(time());
+        $saved_user->save();
+
+        /** @var UserRecord $updated_user */
+        $updated_user = UserRecord::findOne($saved_user->id);
+
+        $this->assertEquals($expected_hash, $saved_user->password);
+        $this->assertEquals($expected_hash, $updated_user->password);
+    }
+
 }
