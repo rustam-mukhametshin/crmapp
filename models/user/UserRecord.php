@@ -60,4 +60,12 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
 
         return $return;
     }
+
+    /**
+     * @return int|string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
