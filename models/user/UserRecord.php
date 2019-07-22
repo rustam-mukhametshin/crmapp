@@ -68,4 +68,12 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return $this->id;
     }
+
+    /**
+     * @return string
+     */
+    public function getAuthKey()
+    {
+        return $this->auth_key;
+    }
 }
