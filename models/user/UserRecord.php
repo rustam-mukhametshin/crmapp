@@ -29,7 +29,7 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password'], 'string', 'max' => 255],
+            [['username', 'password', 'auth_key'], 'string', 'max' => 255],
             [['username'], 'unique'],
         ];
     }
