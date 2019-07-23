@@ -11,6 +11,7 @@ use yii\web\IdentityInterface;
  * @property int $id
  * @property string $username
  * @property string $password
+ * @property string $auth_key
  */
 class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
 {
@@ -56,6 +57,14 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
 
         if ($this->isAttributeChanged('password')) {
             $this->password = Yii::$app->security->generatePasswordHash($this->password);
+        }
+
+        /**
+         * If record is new or calls method save(),
+         * generate number of random bytes.
+         */
+        if ($this->isNewRecord) {
+            $this->auth_key = Yii::$app->security->generateRandomKey($length = 255);
         }
 
         return $return;
