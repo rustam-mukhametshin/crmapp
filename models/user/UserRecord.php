@@ -4,6 +4,7 @@ namespace app\models\user;
 
 use Yii;
 use yii\web\IdentityInterface;
+use yii\base\NotSupportedException;
 
 /**
  * This is the model class for table "user".
@@ -102,5 +103,18 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
     public function validateAuthKey($authKey)
     {
         return $this->getAuthKey() == $authKey;
+    }
+
+    /**
+     * @param mixed $token
+     * @param null $type
+     * @return void|IdentityInterface|null
+     * @throws NotSupportedException
+     */
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        throw new NotSupportedException(
+            'You can login by username/password pair for now.'
+        );
     }
 }
