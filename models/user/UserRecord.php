@@ -79,6 +79,15 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
+     * @param int|string $id
+     * @return UserRecord|IdentityInterface|null
+     */
+    public static function findIdentity($id)
+    {
+        return static::findOne($id);
+    }
+
+    /**
      * @return string
      */
     public function getAuthKey()
