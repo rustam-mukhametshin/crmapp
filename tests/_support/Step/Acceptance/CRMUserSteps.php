@@ -49,4 +49,24 @@ class CRMUserSteps extends \AcceptanceTester
         $text = $I->grabTextFrom('p'); // naive selector
         $I->seeContentIsLong($text);
     }
+
+    public function seeIAmInLoginFormUi()
+    {
+        $I = $this;
+        $I->seeCurrentUrlEquals('/site/login');
+    }
+
+    public function fillLoginForm($user)
+    {
+        $I = $this;
+        $I->fillField('LoginForm[username]', $user['UserRecord[username]']);
+        $I->fillField('LoginForm[password]', $user['UserRecord[password]']);
+    }
+
+    public function submitLoginForm()
+    {
+        $I = $this;
+        $I->click('button[type=submit]');
+        //$I->wait(1);
+    }
 }

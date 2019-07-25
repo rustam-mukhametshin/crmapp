@@ -1,5 +1,9 @@
 <?php
-$I = new AcceptanceTester\CRMUsersManagementSteps($scenario);
+
+use Step\Acceptance\CRMUsersManagementSteps;
+use Step\Acceptance\CRMUserSteps;
+
+$I = new CRMUsersManagementSteps($scenario);
 $I->wantTo('check that login and logout work');
 
 $I->amGoingTo('Register new User');
@@ -11,7 +15,7 @@ $user = $I->imagineUser();
 $I->fillUserDataForm($user);
 $I->submitUserDataForm();
 
-$I = new AcceptanceTester\CRMUserSteps($scenario);
+$I = new CRMUserSteps($scenario);
 $I->amGoingTo('login');
 
 $I->seeLink('login');
