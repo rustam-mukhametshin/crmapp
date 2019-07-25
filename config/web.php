@@ -33,6 +33,9 @@ return [
                 'basePath' => '@app/themes/snowy',
             ]
         ],
+        'user' => [
+            'identityClass' => 'app\models\user\UserRecord',
+        ],
     ],
     'modules' => [
         'gii' => [
