@@ -69,4 +69,10 @@ class CRMUserSteps extends \AcceptanceTester
         $I->click('button[type=submit]');
         //$I->wait(1);
     }
+
+    public function seeIAmAtHomepage()
+    {
+        $I = $this;
+        $I->seeCurrentUrlMatches('/');
+    }
 }
