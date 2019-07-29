@@ -19,6 +19,9 @@ class LoginForm extends Model
      */
     public $rememberMe;
 
+    /** @var UserRecord */
+    public $user;
+
     /**
      * @return array
      */
@@ -41,5 +44,28 @@ class LoginForm extends Model
                 'validatePassword',
             ],
         ];
+    }
+
+    /**
+     * Get user.
+     * @param $username
+     * @return UserRecord|null
+     */
+    private function getUser($username)
+    {
+        if (!$this->user) {
+            $this->user = $this->fetchUser($username);
+        }
+        return $this->user;
+    }
+
+    /**
+     * Get all about one user.
+     * @param $username
+     * @return UserRecord|null
+     */
+    private function fetchUser($username)
+    {
+        return UserRecord::findOne(compact('username'));
     }
 }
