@@ -47,6 +47,21 @@ class LoginForm extends Model
     }
 
     /**
+     * Validate password.
+     * @param $attributeName
+     */
+    public function validatePassword($attributeName)
+    {
+        if ($this->hasErrors()) {
+            return;
+        }
+        $user = $this->getUser($this->username);
+        if (!($user and $this->isCorrectHash($this->$attributeName, $user->password))) {
+            $this->addError('password', 'Incorrect username or password');
+        }
+    }
+
+    /**
      * Get user.
      * @param $username
      * @return UserRecord|null
