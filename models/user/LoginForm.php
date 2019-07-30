@@ -68,4 +68,15 @@ class LoginForm extends Model
     {
         return UserRecord::findOne(compact('username'));
     }
+
+    /**
+     * Check password hash.
+     * @param $plaintext
+     * @param $hash
+     * @return bool
+     */
+    private function isCorrectHash($plaintext, $hash)
+    {
+        return \Yii::$app->security->validatePassword($plaintext, $hash);
+    }
 }
