@@ -38,4 +38,13 @@ class SiteController extends Controller
 
         return $this->render('login', compact('model'));
     }
+
+    /**
+     * @return \yii\web\Response
+     */
+    public function actionLogout()
+    {
+        \Yii::$app->user->logout();
+        return $this->goHome();
+    }
 }
