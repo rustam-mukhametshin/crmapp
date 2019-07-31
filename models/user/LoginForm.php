@@ -94,4 +94,20 @@ class LoginForm extends Model
     {
         return \Yii::$app->security->validatePassword($plaintext, $hash);
     }
+
+    /**
+     * @return bool
+     */
+    public function login()
+    {
+        if (!$this->validate())
+            return false;
+        $user = $this->getUser($this->username);
+        if (!$user)
+            return false;
+        return \Yii::$app->user->login(
+            $user,
+            $this->rememberMe ? 3600 * 24 * 30 : 0
+        );
+    }
 }
