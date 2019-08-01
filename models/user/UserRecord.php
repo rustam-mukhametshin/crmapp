@@ -65,7 +65,7 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
          * generate number of random bytes.
          */
         if ($this->isNewRecord) {
-            $this->auth_key = Yii::$app->security->generateRandomKey($length = 255);
+            $this->auth_key = Yii::$app->security->generateRandomString($length = 255);
         }
 
         return $return;
@@ -102,7 +102,7 @@ class UserRecord extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->getAuthKey() == $authKey;
+        return $this->getAuthKey() === $authKey;
     }
 
     /**
