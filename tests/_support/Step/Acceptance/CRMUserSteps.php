@@ -73,7 +73,7 @@ class CRMUserSteps extends \AcceptanceTester
     public function seeIAmAtHomepage()
     {
         $I = $this;
-        $I->seeCurrentUrlMatches('/');
+        $I->seeCurrentUrlEquals('/');
     }
 
     public function seeUsername($user)
