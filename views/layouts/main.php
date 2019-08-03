@@ -27,7 +27,7 @@ ApplicationUiAssetBundle::register($this);
                 <?= Html::a('login', '/site/login'); ?>
             <?php else: ?>
                 <?= Html::tag('span', Yii::$app->user->identity->username) ?>
-                <?php Html::a('logout', '/site/logout') ?>
+                <?= Html::a('logout', '/site/logout') ?>
             <?php endif; ?>
         </div>
         <?= $content ?>
