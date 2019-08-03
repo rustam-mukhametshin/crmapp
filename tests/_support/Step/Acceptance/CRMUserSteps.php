@@ -79,12 +79,12 @@ class CRMUserSteps extends \AcceptanceTester
     public function seeUsername($user)
     {
         $I = $this;
-        $I->see($user['UserRecord[name]']);
+        $I->see($user['UserRecord[username]']);
     }
 
     public function dontSeeUsername($user)
     {
         $I = $this;
-        $I->dontSee($user['UserRecord[name]']);
+        $I->dontSee($user['UserRecord[username]']);
     }
 }
