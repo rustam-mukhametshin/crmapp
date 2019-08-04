@@ -1,7 +1,7 @@
 <?php
 
 //ini_set('display_errors', true);
-define('YII_DEBUG', true);
+define('YII_DEBUG', false);
 
 // Включаем сам фреймворк Yii
 require(__DIR__ . '/../vendor/autoload.php');
