@@ -8,6 +8,10 @@ Run migrations.
 ~~~
 php yii migrate
 ~~~
+Be sure that mysql is using, if not, change manually `create_rbac_tables` migration.
+~~~
+@yii/rbac/migrations/schema-mysql.sql
+~~~
 Create dump of scheme.
 ~~~
 mysqldump -u root -p -d yii2_crmapp > tests/_data/dump.sql
