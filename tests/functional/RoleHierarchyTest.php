@@ -20,4 +20,13 @@ class RoleHierarchyTest extends \Codeception\Test\Unit
     {
 
     }
+
+    public function DefaultRoleIsGuest()
+    {
+        // no login at all
+        $this->assertFalse($this->user->can('admin'));
+        $this->assertFalse($this->user->can('manager'));
+        $this->assertFalse($this->user->can('user'));
+        $this->assertTrue($this->user->can('guest'));
+    }
 }
