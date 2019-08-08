@@ -34,4 +34,37 @@ class RoleHierarchyTest extends \Codeception\Test\Unit
         $this->assertFalse($this->user->can('user'));
         $this->assertTrue($this->user->can('guest'));
     }
+
+    public function PredefinedUserRoles()
+    {
+        return [
+            [
+                'RobAdmin',
+                [
+                    'admin' => true,
+                    'manager' => true,
+                    'user' => true,
+                    'guest' => true,
+                ],
+            ],
+            [
+                'AnnieManager',
+                [
+                    'admin' => false,
+                    'manager' => true,
+                    'user' => true,
+                    'guest' => true,
+                ],
+            ],
+            [
+                'JoeUser',
+                [
+                    'admin' => false,
+                    'manager' => false,
+                    'user' => true,
+                    'guest' => true,
+                ],
+            ],
+        ];
+    }
 }
