@@ -1,5 +1,6 @@
 <?php
 
+use app\models\user\UserRecord;
 use yii\web\User;
 
 class RoleHierarchyTest extends \Codeception\Test\Unit
@@ -66,5 +67,22 @@ class RoleHierarchyTest extends \Codeception\Test\Unit
                 ],
             ],
         ];
+    }
+
+    /**
+     * @test
+     * @dataProvider PredefinedUserRoles
+     * @param $username
+     * @param $rbac
+     */
+    public function PredefinedUsersHasProperRoles($username, $rbac)
+    {
+        $identity = UserRecord::findOne(compact('username'));
+
+        $this->user->login($identity);
+
+        foreach ($rbac as $role => $allowed) {
+            $this->assertEquals($allowed, $this->user->can($role));
+        }
     }
 }
