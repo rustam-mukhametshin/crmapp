@@ -19,6 +19,7 @@ class RoleHierarchyTest extends \Codeception\Test\Unit
 
     protected function _after()
     {
+        $this->user->logout();
     }
 
     // tests
