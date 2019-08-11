@@ -36,6 +36,10 @@ return [
         'user' => [
             'identityClass' => 'app\models\user\UserRecord',
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest'],
+        ],
     ],
     'modules' => [
         'gii' => [
