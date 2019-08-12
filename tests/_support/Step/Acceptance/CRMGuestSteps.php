@@ -48,4 +48,16 @@ class CRMGuestSteps extends \AcceptanceTester
         $I = $this;
         $I->seeCurrentUrlEquals('/');
     }
+
+    public function seeUsername($user)
+    {
+        $I = $this;
+        $I->see($user['UserRecord[username]']);
+    }
+
+    public function dontSeeUsername($user)
+    {
+        $I = $this;
+        $I->dontSee($user['UserRecord[username]']);
+    }
 }
