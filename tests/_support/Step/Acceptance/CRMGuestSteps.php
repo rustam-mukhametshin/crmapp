@@ -22,4 +22,30 @@ class CRMGuestSteps extends \AcceptanceTester
         // Expecting that this button is presented on the homepage.
         $I->click('logout');
     }
+
+    public function seeIAmInLoginFormUi()
+    {
+        $I = $this;
+        $I->seeCurrentUrlEquals('/site/login');
+    }
+
+    public function fillLoginForm($user)
+    {
+        $I = $this;
+        $I->fillField('LoginForm[username]', $user['UserRecord[username]']);
+        $I->fillField('LoginForm[password]', $user['UserRecord[password]']);
+    }
+
+    public function submitLoginForm()
+    {
+        $I = $this;
+        $I->click('button[type=submit]');
+        //$I->wait(1);
+    }
+
+    public function seeIAmAtHomepage()
+    {
+        $I = $this;
+        $I->seeCurrentUrlEquals('/');
+    }
 }
