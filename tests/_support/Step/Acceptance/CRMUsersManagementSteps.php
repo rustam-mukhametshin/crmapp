@@ -6,8 +6,8 @@ use Codeception\Exception\ModuleException;
 
 class CRMUsersManagementSteps extends CRMGuestSteps
 {
-    public $username = 'AnnieManager';
-    public $password = 'Shiny 3 things hmm, vulnerable';
+    public $username = 'RobAdmin';
+    public $password = 'Imitate #14th symptom of apathy';
 
     const SERVICES_LIST_SELECTOR = '.grid-view';
 

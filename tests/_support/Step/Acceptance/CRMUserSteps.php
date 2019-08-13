@@ -4,6 +4,9 @@ namespace Step\Acceptance;
 
 class CRMUserSteps extends \AcceptanceTester
 {
+    public $username = 'JoeUser';
+    public $password = '7 wonder @ American soil';
+
     function amInQueryCustomerUi()
     {
         $I = $this;

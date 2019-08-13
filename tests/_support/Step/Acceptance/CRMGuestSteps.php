@@ -1,8 +1,19 @@
 <?php
+
 namespace Step\Acceptance;
 
 class CRMGuestSteps extends \AcceptanceTester
 {
+    public $username;
+    public $password;
+
+    public function __construct($scenario)
+    {
+        parent::__construct($scenario);
+
+        if ($this->username and $this->password)
+            $this->login($this->username, $this->password);
+    }
 
     function login($username, $password)
     {
