@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use yii\data\ArrayDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use app\models\customer\Customer;
 use app\models\customer\CustomerRecord;
@@ -15,6 +16,28 @@ use app\models\customer\PhoneRecord;
  */
 class CustomersController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'actions' => ['add'],
+                        'roles' => ['manager'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['index', 'query'],
+                        'roles' => ['user'],
+                        'allow' => true,
+                    ],
+                ],
+            ],
+        ];
+    }
+
     /**
      * @return string
      */

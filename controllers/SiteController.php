@@ -2,11 +2,34 @@
 
 namespace app\controllers;
 
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use app\models\user\LoginForm;
 
 class SiteController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => ['login', 'logout'],
+                'rules' => [
+                    [
+                        'actions' => ['login'],
+                        'roles' => ['?'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout'],
+                        'roles' => ['@'],
+                        'allow' => true,
+                    ]
+                ]
+            ]
+        ];
+    }
+
     /**
      * @return string
      */
@@ -36,7 +59,9 @@ class SiteController extends Controller
             return $this->goBack();
         }
 
-        return $this->render('login', compact('model'));
+        return $this->render('login', [
+            'model ' => $model,
+        ]);
     }
 
     /**
