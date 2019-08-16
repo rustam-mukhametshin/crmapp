@@ -5,7 +5,7 @@ namespace Step\Acceptance;
 
 use Faker\Factory;
 
-class CRMOperatorSteps extends \AcceptanceTester
+class CRMOperatorSteps extends CRMGuestSteps
 {
     public $username = 'AnnieManager';
     public $password = 'Shiny 3 things hmm, vulnerable';

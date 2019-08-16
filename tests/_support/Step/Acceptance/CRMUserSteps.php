@@ -2,7 +2,7 @@
 
 namespace Step\Acceptance;
 
-class CRMUserSteps extends \AcceptanceTester
+class CRMUserSteps extends CRMGuestSteps
 {
     public $username = 'JoeUser';
     public $password = '7 wonder @ American soil';
